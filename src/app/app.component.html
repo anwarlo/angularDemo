@@ -15,6 +15,14 @@
       <input type="text" class="form-control" [(ngModel)]="username">
       <p>{{ username }}</p>
       <button class="btn btn-primary" [disabled]="username === ''" (click)="username = ''">Reset User</button>
+      <hr>
+<!--      <button class="btn btn-primary" (click)="showSecret = !showSecret">Toggle Details</button>-->
+      <button class="btn btn-primary" (click)="onToggleDisplay()">Toggle Details</button>
+      <p *ngIf="showSecret">Secret Password = tuna</p>
+      <div *ngFor="let logItem of log; let i = index"
+      [ngStyle]="{backgroundColor: logItem >= 5 ? 'blue' : 'transparent'}"
+           [ngClass]="{'white-text': logItem >=5}"
+      >{{ logItem }}</div>
     </div>
   </div>
 </div>
